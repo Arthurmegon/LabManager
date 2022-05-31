@@ -47,22 +47,18 @@ if (modelName == "Computer")
 
 if (modelName == "Lab")
 {
+    var labRepository = new LabRepository();
+
     if(modelAction == "List")
     {
         Console.WriteLine("Lab List");
-        var connection = new SqliteConnection("Data Source=database.db");
-        connection.Open();
 
-        var command = connection.CreateCommand();
-        command.CommandText = "SELECT * FROM Lab;"; 
+        var labs = labRepository.GetAll();
 
-        var reader = command.ExecuteReader();
-
-        while (reader.Read())
+        foreach (var lab in labs)
         {
-            Console.WriteLine("{0}, {1}, {2}, {3}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)); 
+             Console.WriteLine($"{lab.Id}, {lab.Number}, {lab.Name}, {lab.Block}"); 
         }
-        connection.Close();
     }
 
     if(modelAction == "New")
