@@ -56,6 +56,16 @@ if (modelName == "Computer")
 
         computerRepository.Update(computer);
     }
+
+    if(modelAction == "Show")
+    {
+        Console.WriteLine("Show Computer");
+        var id = Convert.ToInt32(args[2]);
+
+        var computer = computerRepository.GetById(id);
+        Console.WriteLine($"{computer.Id}, {computer.Ram}, {computer.Processor}"); 
+
+    }
 }
 
 if (modelName == "Lab")
