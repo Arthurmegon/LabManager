@@ -37,6 +37,14 @@ if (modelName == "Computer")
         computerRepository.Save(computer);
 
     }
+
+        if(modelAction == "Delete")
+    {
+        Console.WriteLine("Delete Computer");
+        var id = Convert.ToInt32(args[2]);
+
+        computerRepository.Delete(id);
+    }
 }
 
 if (modelName == "Lab")
