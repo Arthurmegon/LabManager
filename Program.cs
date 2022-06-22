@@ -31,7 +31,7 @@ if (modelName == "Computer")
         var id = Convert.ToInt32(args[2]);
         var ram = args[3];
         var processor = args [4]; 
-
+        
         var computer = new Computer(id, ram, processor);
 
         computerRepository.Save(computer);
@@ -51,9 +51,6 @@ if (modelName == "Computer")
         {
             Console.WriteLine($"O computador {id} não existe");
         }
-
-        
-
     }
 
     if(modelAction == "Update")
